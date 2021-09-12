@@ -66,3 +66,7 @@ For ```tests``` and ```test coverage```
 go test ./... -v cover
 
 ```
+
+```TODO```
+1. Set up sample CI/CD process using GitlabCI
+2. Update docs with responses expected after timeout /expiry/invalidOTP
