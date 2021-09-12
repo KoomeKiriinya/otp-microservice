@@ -59,3 +59,10 @@ Sample ```Response``` to Generate OTP
 {"otp":"OTP Matched"}
 
 ```
+
+For ```tests``` and ```test coverage``` 
+
+```markdown
+go test ./... -v cover
+
+```
