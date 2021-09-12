@@ -6,7 +6,7 @@ Developed using the [Go kit](https://dev.to/eminetto/microservices-in-go-using-t
 
 
 
-To start using ```docker-compose``` Fill in env.example with the required variables
+while using ```docker-compose``` Fill in env.example with the required variables
 
 ``` markdown
 source .env.example
@@ -14,7 +14,7 @@ docker-compose up --build
 
 ```
 
-To start using ```go binary``` Fill in env.example with the required variables
+while using ```go binary``` Fill in env.example with the required variables
 
 ```markdown
 
