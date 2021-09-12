@@ -1,0 +1,35 @@
+version: "3.9"
+services: 
+  otp-service:
+    build: 
+      context: .
+      args:
+        REDIS_DSN: ${REDIS_DSN}
+        REDIS_PASSWORD: ${REDIS_PASSWORD}
+    depends_on: 
+    - redis 
+    restart: "always"
+    ports: 
+    - 8081:8081
+    environment: 
+    - WAIT_HOSTS=${REDIS_DSN}
+    networks: 
+    - otpservice-network
+  redis:
+    image: bitnami/redis:latest
+    environment: 
+    - REDIS_PORT_NUMBER=${REDIS_PORT_NUMBER}
+    - REDIS_PASSWORD=${REDIS_PASSWORD}
+    volumes: 
+    - ${PWD}/redis-persistence:/bitnami
+    restart: always
+    ports: 
+    - 6379:6379
+    networks:
+    - otpservice-network
+networks:
+  otpservice-network: 
+    driver: bridge
+  
+  
+
