@@ -52,7 +52,7 @@ curl --location --request POST 'http://127.0.0.1:8081/validateOTP' \
     "user_otp_value": "7N6K-2HQT"
 }'
 ```
-Sample ```Response``` to Generate OTP 
+Sample ```Response``` to Validate OTP 
 
 ```markdown
 
