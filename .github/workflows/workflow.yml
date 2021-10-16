@@ -7,7 +7,7 @@ on:
     paths-ignore:
      - '**.md'
 jobs:
-  testgithubactions:
+  testjob:
     runs-on: ubuntu-latest
     container: golang:1.15-buster
     services:
