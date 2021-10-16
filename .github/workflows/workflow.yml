@@ -32,6 +32,6 @@ jobs:
         run: |
             go test ./... -v
         env:
-          REDIS_PORT_NUMBER: 6379
-          REDIS_DSN: "redis:6379"
-          REDIS_PASSWORD: ""
+          REDIS_PORT_NUMBER: ${{secrets.REDIS_PORT_NUMBER}}
+          REDIS_DSN:  ${{secrets.REDIS_DSN}}
+          REDIS_PASSWORD: ${{secrets.REDIS_PASSWORD}}
