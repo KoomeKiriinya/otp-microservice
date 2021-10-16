@@ -17,4 +17,4 @@ jobs:
           go-version: 1.15.0
       - name: run go version
         run: |
-            go version
+            go test ./... -v
