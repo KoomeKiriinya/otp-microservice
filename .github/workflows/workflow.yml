@@ -14,8 +14,11 @@ jobs:
       # Label used to access the service container
       redis:
         # Docker Hub image
-        image: redis
+        image: bitnami/redis:latest
         # Set health checks to wait until redis has started
+        env:
+          REDIS_PASSWORD: ${{secrets.REDIS_PASSWORD}}
+          REDIS_PORT_NUMBER: ${{secrets.REDIS_PORT_NUMBER}}
         options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
