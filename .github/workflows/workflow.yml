@@ -9,7 +9,7 @@ on:
 jobs:
   testgithubactions:
     runs-on: ubuntu-latest
-
+    container: golang:1.15-buster
     services:
       # Label used to access the service container
       redis:
