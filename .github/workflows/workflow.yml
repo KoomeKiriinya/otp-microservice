@@ -38,7 +38,7 @@ jobs:
           REDIS_PORT_NUMBER: ${{secrets.REDIS_PORT_NUMBER}}
           REDIS_DSN:  ${{secrets.REDIS_DSN}}
           REDIS_PASSWORD: ${{secrets.REDIS_PASSWORD}}
-  builds:
+  build:
     runs-on: ubuntu-latest
     steps:
       -
