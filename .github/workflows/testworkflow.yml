@@ -1,8 +1,8 @@
 name: cicd-setup-development
 on: 
   push:
-    branches:
-      - "*"
+    branches-ignore:
+      - "development"
     paths-ignore:
      - '**.md'
 jobs:
