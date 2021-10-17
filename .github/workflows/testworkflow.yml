@@ -1,0 +1,39 @@
+name: cicd-setup-development
+on: 
+  push:
+    branches:
+      - "*"
+    paths-ignore:
+     - '**.md'
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    container: golang:1.15-buster
+    services:
+      # Label used to access the service container
+      redis:
+        # Docker Hub image
+        image: bitnami/redis:latest
+        # Set health checks to wait until redis has started
+        env:
+          REDIS_PASSWORD: ${{secrets.REDIS_PASSWORD}}
+          REDIS_PORT_NUMBER: ${{secrets.REDIS_PORT_NUMBER}}
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Setup go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.15.0
+      - name: run go test
+        run: |
+            go test ./... -v
+        env:
+          REDIS_PORT_NUMBER: ${{secrets.REDIS_PORT_NUMBER}}
+          REDIS_DSN:  ${{secrets.REDIS_DSN}}
+          REDIS_PASSWORD: ${{secrets.REDIS_PASSWORD}}
