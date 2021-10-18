@@ -15,7 +15,7 @@ type ValidateOTPRequest struct {
 }
 
 type GenerateOTPResponse struct {
-	OTP string `json:"otp,omitempty"`
+	OTP string `json:"otp_match_status,omitempty"`
 	Err string `json:"err,omitempty"`
 }
 
