@@ -56,7 +56,7 @@ Sample ```Response``` to Validate OTP
 
 ```markdown
 
-{"otp":"OTP Matched"}
+{"otp_match_status":"OTP Matched"}
 
 ```
 
