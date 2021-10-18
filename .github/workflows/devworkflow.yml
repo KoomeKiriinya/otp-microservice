@@ -32,7 +32,7 @@ jobs:
           go-version: 1.15.0
       - name: run go test
         run: |
-            go test ./... -v
+            go test ./... -v -cover
         env:
           REDIS_PORT_NUMBER: ${{secrets.REDIS_PORT_NUMBER}}
           REDIS_DSN:  ${{secrets.REDIS_DSN}}
