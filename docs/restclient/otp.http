@@ -1,0 +1,17 @@
+@host=http://0.0.0.0:8081
+
+###
+POST {{host}}/generateOTP HTTP/1.1
+content-type: application/json
+
+{
+ "otp_key":"+254797XXXXX"
+}
+###
+POST {{host}}/validateOTP HTTP/1.1
+content-type: application/json
+
+{
+ "otp_key":"+254797XXXXX",
+ "userotp_value": "MLGU-H1QC"
+}
