@@ -7,16 +7,16 @@ import (
 )
 
 type GenerateOTPRequest struct {
-	Otp_key string `json:"otp_key"`
+	Otp_key string `json:"otp_key,omitempty"`
 }
 type ValidateOTPRequest struct {
-	Otp_key string `json:"otp_key"`
-	Otp_user_value string `json:"user_otp_value"`
+	Otp_key        string `json:"otp_key,omitempty"`
+	Otp_user_value string `json:"user_otp_value,omitempty"`
 }
 
 type GenerateOTPResponse struct {
 	OTP string `json:"otp,omitempty"`
-	Err    string `json:"err,omitempty"`
+	Err string `json:"err,omitempty"`
 }
 
 func makeGenerateOTPEndpoint(svc Service) endpoint.Endpoint {
