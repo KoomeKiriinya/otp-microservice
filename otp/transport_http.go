@@ -3,7 +3,10 @@ package otp
 import (
 	"context"
 	"encoding/json"
+	"errors"
+	"io/ioutil"
 	"net/http"
+
 	"github.com/go-kit/kit/log"
 	httptransport "github.com/go-kit/kit/transport/http"
 	"github.com/gorilla/mux"
@@ -59,17 +62,37 @@ func codeFrom(err error) int {
 
 func DecodeGenerateOTPRequest(ctx context.Context, r *http.Request) (interface{}, error) {
 	var request GenerateOTPRequest
-	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
+	reqBody, err := ioutil.ReadAll(r.Body)
+	if err != nil {
 		return nil, err
+	}
+	if err = json.Unmarshal(reqBody, &request); err != nil {
+		return nil, err
+	}
+	if request.Otp_key == "" {
+		return nil, errors.New("otp_key not present in request body")
 	}
 	return request, nil
 }
 
 func DecodeValidateOTPRequest(ctx context.Context, r *http.Request) (interface{}, error) {
 	var request ValidateOTPRequest
-	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
+	reqBody, err := ioutil.ReadAll(r.Body)
+	if err != nil {
 		return nil, err
 	}
+	if err = json.Unmarshal(reqBody, &request); err != nil {
+		return nil, err
+	}
+
+	if request.Otp_key == "" {
+		return nil, errors.New("otp_key not present in request body")
+	}
+
+	if request.Otp_user_value == "" {
+		return nil, errors.New("user_otp_value not present in request body")
+	}
+
 	return request, nil
 }
 
