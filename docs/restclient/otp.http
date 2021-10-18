@@ -13,5 +13,5 @@ content-type: application/json
 
 {
  "otp_key":"+254797XXXXX",
- "userotp_value": "MLGU-H1QC"
+ "user_otp_value": "MLGU-H1QC"
 }
