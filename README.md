@@ -67,6 +67,6 @@ go test ./... -v cover
 
 ```
 
-```TODO```
-1. Set up sample CI/CD process using GitlabCI
-2. Update docs with responses expected after timeout /expiry/invalidOTP
+```CICD```
+CI/CD workflows for test and build set up on .github/workflows folder
+
