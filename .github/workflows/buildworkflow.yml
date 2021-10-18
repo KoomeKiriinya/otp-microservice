@@ -1,4 +1,4 @@
-name: cicd-setup-development
+name: build-workflow
 on: 
   push:
     branches:

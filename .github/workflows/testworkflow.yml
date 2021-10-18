@@ -1,4 +1,4 @@
-name: cicd-setup-development
+name: test-workflow
 on: 
   push:
     branches-ignore:
